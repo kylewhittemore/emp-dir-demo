@@ -22,7 +22,10 @@ const FilterForm = (props) => {
     }
 
     return (
-        <Form onSubmit={event => event.preventDefault()}className="my-3">
+        <Form onSubmit={event => {
+            event.preventDefault()
+            props.filterEmployees(filterQuery.parameter, filterQuery.value)
+        }} className="my-3">
             <Form.Row>
                 <Form.Group as={Col} controlId="exampleForm.ControlSelect1">
                     <Form.Control as="select" onChange={handleInputChange} name='parameter'>
@@ -35,9 +38,10 @@ const FilterForm = (props) => {
                     <Form.Control onChange={handleInputChange} name='value' value={filterQuery.value} type="text" />
                 </Form.Group>
                 <Form.Group as={Col}>
-                    <Button onClick={() => {
-                        props.filterEmployees(filterQuery.parameter, filterQuery.value)
-                    }}>Filter</Button>
+                    <Button type='submit'>Filter</Button>
+                    <Button className='mx-2' onClick={props.getEmployees}>
+                        Clear
+                    </Button>
                 </Form.Group>
             </Form.Row>
         </Form>

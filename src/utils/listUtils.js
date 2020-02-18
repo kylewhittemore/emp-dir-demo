@@ -48,7 +48,7 @@ const listUtils = {
 
   filterByParam(list, parameter, value) {
     value = value.toLowerCase()
-    return list.filter(employee => employee[parameter].toLowerCase() === value)
+    return list.filter(employee => employee[parameter].toLowerCase().includes(value))
   }
 }
 

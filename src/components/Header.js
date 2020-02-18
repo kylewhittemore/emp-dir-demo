@@ -1,5 +1,4 @@
 import React from 'react';
-import FilterForm from './FilterForm';
 
 const styles = {
     header: {
